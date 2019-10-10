@@ -20,15 +20,17 @@
                          //caso 1 da hiposte 1
                          if(($valorConta <= 5000) && ($vencimento < $datetime1) && ($creditoGarantia = 'N') && ($cobrancaAdm = 'N') && ($processoJudicial = 'N'))
                          {
-                              echo "caiu";
+                              echo"Dedutivel por H1";
                               $hipotese = 1.1;
                               $sql ="UPDATE PECLD  SET hipotese = '$hipotese', dedutibilidade = '$dedutivel' WHERE 'id' = '$id'";
                          }else if(($valorConta <= 5000) && ($vencimento < $datetime1) && ($creditoGarantia = 'N') && ($cobrancaAdm = 'S') && ($processoJudicial = 'N'))
                          {
+                              echo"Dedutivel por H2";
                               $hipotese = 1.2;
                               $sql ="UPDATE PECLD  SET hipotese = '$hipotese', dedutibilidade = '$dedutivel' WHERE 'id' = '$id'";
                          }else if(($valorConta <= 5000) && ($vencimento < $datetime1) && ($creditoGarantia = 'N') && ($cobrancaAdm = 'N') && ($processoJudicial = 'S'))
                          {
+                              echo"Dedutivel por H3";
                               $hipotese = 1.3;
                               $sql ="UPDATE PECLD  SET hipotese = '$hipotese', dedutibilidade = '$dedutivel' WHERE 'id' = '$id'";
                          }
@@ -175,11 +177,13 @@
                          {
                               $hipotese = 9.3;
                               $sql ="UPDATE PECLD  SET hipotese = '$hipotese', dedutibilidade = '$dedutivel' WHERE 'id' = '$id'";
-                         }
-                         else if(($valorConta > 50000) && ($vencimento > $datetime2) && ($creditoGarantia = 'S') && ($cobrancaAdm = 'N') && ($processoJudicial = 'N'))
+                         }else if(($valorConta > 50000) && ($vencimento > $datetime2) && ($creditoGarantia = 'S') && ($cobrancaAdm = 'N') && ($processoJudicial = 'N'))
                          {
                               $hipotese = 9.4;
                               $sql ="UPDATE PECLD  SET hipotese = '$hipotese', dedutibilidade = '$indedutivel' WHERE 'id' = '$id'";
+                         }else 
+                         {
+                              Echo "Erro! Entre em contato com Argos Contabilidade";
                          }
                     }    
                } //end                     
